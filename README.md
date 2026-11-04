@@ -112,14 +112,11 @@ The following gameplay scenarios have also been demonstrated:
 
 ## Learning Evidence
 
-Two learning-log entries and a final personal reflection are required before submission.
+The project includes two learning-log entries and a final personal reflection.
 
-Each learning log should include:
-
-1. Topic.
-2. What the tutor explained.
-3. Your experiment.
-4. Your conclusion.
+- `docs/learning-log-1.md`
+- `docs/learning-log-2.md`
+- `docs/reflection.md`
 
 Final reflection:
 
@@ -139,6 +136,14 @@ Final reflection:
 - [x] Replay functionality.
 - [x] At least eight automated tests.
 - [x] Winning and losing gameplay demonstrations.
-- [ ] Two learning-log entries.
-- [ ] Final personal reflection.
-- [ ] Final GitHub submission evidence.
+- [x] Two learning-log entries.
+- [x] Final personal reflection.
+- [x] Final GitHub submission evidence.
+
+## Final Submission Evidence
+
+- Repository: https://github.com/chikafor/Mystery_Island
+- Final commit: 8caf1634bb800b34ab64edf0f2fc0bfd15c19415
+- Branch: main
+- Python version: 3.12.3
+- Automated tests: 29 passed
