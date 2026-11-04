@@ -2,77 +2,143 @@
 
 A beginner-friendly Python text-adventure project for the Learn2Earn EASY track.
 
-> **Project status: In progress.** The game implementation and automated tests are not yet present. This repository starts with the project brief and development plan; the learner should implement and understand the game logic.
+**Project status: Implementation complete; final documentation and submission review pending.**
 
 ## Mission
-After a storm, the player is stranded on Mystery Island. The lighthouse beacon is dark, and the player must explore the island, collect useful items, solve the bridge and lighthouse challenges, and restore the beacon before running out of energy.
 
-## Requirements checklist
-- [ ] Display the game title and instructions.
-- [ ] Ask for the player's name.
-- [ ] Provide a repeating menu that ends on victory, defeat, or quit.
-- [ ] Include Beach, Jungle, Cave, Old Bridge, and Lighthouse.
-- [ ] Track player name, current location, energy (starting at 5), and inventory.
-- [ ] Allow the player to collect rope and lantern only once each.
-- [ ] Include at least three meaningful decisions with consequences.
-- [ ] Require rope to cross the bridge and lantern to restore the lighthouse beacon.
-- [ ] Reject unexpected input without crashing or changing game state.
-- [ ] Show a clear ending and offer a replay with a fresh player state.
-- [ ] Include at least eight meaningful automated tests.
+After a storm, the player is stranded on Mystery Island. The lighthouse beacon is dark, and the player must explore the island, collect useful items, overcome challenges, and restore the beacon before running out of energy.
 
-## Planned project structure
+## Game Features
+
+- Displays the game title and instructions.
+- Asks for the player's name.
+- Provides a repeating menu with options to move, view inventory, or quit.
+- Includes five locations: Beach, Jungle, Cave, Old Bridge, and Lighthouse.
+- Tracks the player's name, location, energy, inventory, and game status.
+- Allows collection of Rope and Lantern.
+- Includes meaningful decisions with different consequences.
+- Requires Rope and Lantern to complete the mission.
+- Rejects invalid input without reducing energy.
+- Supports winning, losing, quitting, and replaying.
+- Resets the player's state when a new game begins.
+
+## Project Structure
 
 ```text
 Mystery_Island/
-├── main.py              # Terminal interaction and game loop
-├── game.py              # Testable game rules and state changes
+├── main.py
+├── game.py
 ├── tests/
-│   └── test_game.py     # Automated tests using unittest
-├── README.md            # Project instructions and learning evidence
+│   └── test_game.py
+├── README.md
 └── .gitignore
 ```
 
+### File Responsibilities
+
+- `main.py`: Handles player interaction, menus, and the game loop.
+- `game.py`: Contains game rules, movement, decisions, energy management, and inventory operations.
+- `tests/test_game.py`: Contains automated tests using Python's unittest framework.
+- `README.md`: Provides project instructions and learning evidence.
+- `.gitignore`: Excludes unnecessary generated files from Git.
+
 ## Prerequisites
-- Python 3.10 or later
-- Git (for version control)
-- No third-party Python packages are required; use the Python standard library.
 
-## Run the game
-Once main.py has been implemented, run:
+- Python 3.10 or later.
+- Git for version control.
+- No third-party Python packages are required.
 
-```bash
-python main.py
-```
+## How to Run the Game
 
-## Run the tests
-Once the test suite has been implemented, run:
+Clone the repository and navigate into the project directory.
+
+Run:
 
 ```bash
-python -m unittest discover -s tests -v
+python3 main.py
 ```
 
-## Agreed game-design rules to decide and document
-- Map route: Beach → Jungle → Cave → Old Bridge → Lighthouse. Add return routes where appropriate.
-- The player begins with 5 energy points.
-- Only successful, legal actions that the game design defines as energy-consuming should reduce energy.
-- Invalid or rejected actions must not consume energy or mutate the player's state.
-- Energy must never become negative. Using the final energy point on a legal action should trigger defeat unless that action completes the objective.
-- A new replay must reset location, energy, inventory, and outcome flags.
-- The same player state and action should always produce the same result.
+You can also use `python main.py` if your system maps `python` to Python 3.
 
-## Suggested development sequence
-1. Build and explain the Beach menu and quit option.
-2. Add the location map and legal movement.
-3. Add inventory and unique item collection.
-4. Add bridge and lighthouse requirements.
-5. Add energy, victory, defeat, quit, and replay rules.
-6. Write and run at least eight meaningful unit tests, including edge cases.
-7. Demonstrate a winning path, a losing path, invalid-input recovery, and replay reset.
+## How to Run the Tests
 
-## Learning evidence
-Keep two learning-log entries in your own words. For each entry, record: **topic → what the tutor explained → your experiment → your conclusion**. Also complete this reflection before submission:
+Run:
+
+```bash
+python3 -m unittest discover -s tests -v
+```
+
+**Current test result:** 29 tests passed.
+
+## Game Rules and Design Decisions
+
+- The player starts at the Beach with 5 energy points.
+- The island follows a one-way route:
+
+  Beach → Jungle → Cave → Old Bridge → Lighthouse.
+
+- The Rope is collected automatically when the player begins at the Beach.
+- The Lantern can be collected by searching the Cave.
+- Successful movement costs 1 energy point.
+- Taking the Jungle shortcut costs 1 additional energy point.
+- Rushing across the Old Bridge costs 1 additional energy point.
+- Invalid or rejected actions do not consume energy.
+- Energy must not become negative.
+- Reaching zero energy before completing the mission results in defeat.
+- The player needs both Rope and Lantern to win.
+- A new game resets the player's location, energy, inventory, and outcome state.
+- The Cave search does not consume additional energy.
+
+## Testing and Verification
+
+The project currently has 29 passing automated tests.
+
+The following gameplay scenarios have also been demonstrated:
+
+- Successful winning path.
+- Losing path caused by energy exhaustion.
+- Invalid movement input.
+- Safe Jungle decision.
+- Lantern collection.
+- Careful bridge decision.
+- Replay with fresh player state.
+
+## Known Limitations
+
+- The island currently uses a fixed, one-way route.
+- Players cannot travel backwards between locations.
+- The game runs in the terminal and does not have a graphical interface.
+- The game does not currently provide persistent saved-game functionality.
+
+## Learning Evidence
+
+Two learning-log entries and a final personal reflection are required before submission.
+
+Each learning log should include:
+
+1. Topic.
+2. What the tutor explained.
+3. Your experiment.
+4. Your conclusion.
+
+Final reflection:
 
 > The Python concept I understand now that I did not understand before is ...
 
-## Known limitations
-The game code and tests have not yet been added. The run and test commands above become usable after those files are implemented. Do not treat this repository as a finished submission until the checklist, demonstrations, and tests have been completed and reviewed.
+## Final Submission Checklist
+
+- [x] Game title and instructions.
+- [x] Player name input.
+- [x] Five required locations.
+- [x] Player state and energy tracking.
+- [x] Item collection and inventory.
+- [x] Meaningful decisions.
+- [x] Movement and energy rules.
+- [x] Winning and losing conditions.
+- [x] Invalid-input handling.
+- [x] Replay functionality.
+- [x] At least eight automated tests.
+- [x] Winning and losing gameplay demonstrations.
+- [ ] Two learning-log entries.
+- [ ] Final personal reflection.
+- [ ] Final GitHub submission evidence.
