@@ -266,6 +266,16 @@ class TestMovePlayer(unittest.TestCase):
 
         self.assertFalse(success)
         self.assertEqual(self.player["energy"], 5)
+    
+    def test_cannot_enter_lighthouse_without_rope(self):
+        self.player["location"] = "Old Bridge"
+        self.player["inventory"] = ["Lantern"]
+
+        success, message = move_player(self.player, "Lighthouse")
+
+        self.assertFalse(success)
+        self.assertEqual(self.player["location"], "Old Bridge")
+        self.assertNotIn("Lighthouse", self.player["inventory"])
 
 if __name__ == "__main__":
     unittest.main()
